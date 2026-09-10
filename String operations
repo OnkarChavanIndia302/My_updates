@@ -1,0 +1,186 @@
+package java_core;
+
+
+
+public class str {
+	
+	public void ovel(String a) {
+		
+		int count = 0;
+		
+		for(int i = 0 ; i<a.length();i++) {
+			char ch = a.charAt(i);
+			
+			if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+				count ++ ;	
+			}
+		}
+		System.out.println("total ovels = "+count);
+	}
+	
+	public void rev(String a) {
+		for(int i = a.length()-1;i>=0 ;i--) {
+			char ch = a.charAt(i) ;
+			System.out.print(ch);
+		}
+		System.out.println();
+		
+	}
+	
+	public void palindrom(String a) {
+		
+		String str1 = "" ;
+		
+		for(int i = a.length()-1;i>=0;i--) {			
+			str1 = str1 + a.charAt(i) ;
+		}
+		if(a.equals(str1)) {
+			System.out.println("string is palindrom ");
+		}
+		else {
+			System.out.println("strings are not palindrom");
+		}
+		
+		
+	}
+	
+	public void consonent(String a) {
+		int count = 0 ;
+		
+		for(int i = 0 ; i<a.length();i++) {
+			char ch = a.charAt(i);
+			if(ch != 'a'&& ch != 'e'&& ch != 'i'&& ch != 'o'&& ch != 'u') {
+				count ++;
+			}
+		}
+		System.out.println("the consonent count is "+count);
+	}
+	
+	public void words(String a) {
+		int count = 0 ;
+		for(int i = 0;i<a.length();i++) {
+			char ch = a.charAt(i);
+			if(ch==' ') {
+				count++ ;
+				
+			}
+				
+	}
+		System.out.println("count of the words is "+(count+1));	
+}
+	
+	public void occurance(String a) {
+		int count = 0 ;
+		
+		for(int i = 0;i<a.length();i++) {
+			char ch = a.charAt(i);
+			if(ch=='g') {
+				count++ ;
+				
+			}
+				
+	}
+		System.out.println("count of the words is "+count);	
+}
+	
+	
+	public void digits(String a) {
+		int count = 0 ;
+		for(int i = 0;i<a.length();i++) {
+			char ch = a.charAt(i);
+			if(ch>='0'&&ch<='9'){
+				count++ ;
+			}
+				
+	}
+		System.out.println("count of the digits is "+count);	
+}
+	
+	public void up_lo(String a) {
+		int count_up = 0 ;
+		int count_lo = 0 ;
+		for(int i = 0;i<a.length();i++) {
+			char ch = a.charAt(i);
+			if(ch>='A'&&ch<='Z') {
+				count_up++ ;
+			}
+			if(ch>='a'&&ch<='z') {
+				count_lo ++ ;
+				
+			}
+				
+	}
+		System.out.println("count of the uppercase is "+count_up);	
+		System.out.println("count of the lowercase is "+count_lo);	
+
+}
+	
+	
+	public void removeSpaces(String a) {
+
+	    String result = "";
+
+	    for(int i = 0; i < a.length(); i++) {
+
+	        char ch = a.charAt(i);
+
+	        if(ch != ' ') {
+	            result = result + ch;
+	        }
+	    }
+
+	    System.out.println("String without spaces = " + result);
+	}
+
+	
+	public void double_letter(String a) {
+
+//		a.toLowerCase();
+
+	    for(int i = 0; i < a.length(); i++) {
+	    	for(int j = i+1 ; j<a.length();j++) {
+	    		 char ch = a.charAt(i);
+	    		 if(a.charAt(i) == a.charAt(j)) {
+	    			 
+	    			 System.out.println("duplicate found "+a.charAt(i));
+	    		 }
+	    	}
+	    	
+	    }
+	    
+	}
+
+	
+	
+	
+	
+public static void main(String[] args) {
+	str obj = new str() ;
+	String a = "onkar chavan" ;
+	
+	obj.palindrom(a);
+	
+	obj.ovel(a);
+	
+	obj.rev(a);
+	
+	obj.consonent(a);
+
+	obj.words(a);
+	
+	obj.occurance(a);
+	
+	obj.digits(a);
+	
+	obj.up_lo(a);
+	
+	obj.removeSpaces(a);
+	
+	obj.double_letter(a);
+	
+	
+	
+
+	
+}
+}

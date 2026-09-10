@@ -1,0 +1,94 @@
+package java_core;
+
+public class two_d_array {
+	public void arry(int arr[][]) {
+		for(int row = 0 ;row<arr.length;row++) {
+			for(int clm = 0 ; clm <arr.length;clm++) {
+				System.out.print(arr[row][clm]+" ") ;
+			}
+		}
+	System.out.println();
+	}
+	
+	public void sum (int arr[] []) {
+		int sum = 0 ;
+		
+		for(int row = 0 ; row<arr.length;row++) {
+			for(int clm = 0 ; clm<arr.length;clm++ ) {
+				
+				sum = sum +arr[row][clm] ; 
+			}
+		}
+		System.out.println(sum);
+	}
+	
+	public void max(int arr[][]) {
+		int max = arr[0][0] ;
+		for(int row = 0 ; row<arr.length;row++) {
+			for(int clm = 0 ;clm<arr[row].length;clm++) {
+				if(arr[row][clm] > max) {
+					max = arr[row][clm] ;
+					
+				}
+			}
+		
+	}
+		System.out.println("maximum element is "+max);
+}
+	
+	public void rev(int arr[][]) {
+		for(int row = arr.length-1;row>=0;row--) {
+			for(int clm = arr[row].length-1;clm>=0;clm--) {
+				System.out.print(arr[row][clm]+" ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+		System.out.println();
+		
+	}
+	
+	public void revv(int arr[][]) {
+		for(int row = 0 ; row < arr.length;row++) {
+			for(int clm = arr[row].length-1;clm>=0;clm--) {
+				System.out.print(arr[row][clm]+" ");
+			}
+			System.out.println();
+		}
+		
+	}
+	
+	void even_odd(int arr[][]) {
+		for(int row = 0 ; row<arr.length;row++) {
+			for(int clm = 0 ; clm <arr[row].length;clm++) {
+				if(arr[row][clm] % 2 == 0 ) {
+					System.out.println("the array element is even "+arr[row][clm] );
+				}
+			}
+		}
+	}
+	
+	
+	public static void main(String[] args) {
+		two_d_array obj = new two_d_array() ;
+		int arr [] [] = {
+				{55,11,55},//60
+				{89,45,65},//150
+				{70,561,91}//240
+		};
+ 		obj.arry(arr);
+ 		
+ 		obj.sum(arr);
+ 		
+ 		
+ 		obj.max(arr);
+ 		
+ 		obj.rev(arr);
+ 		
+ 		obj.revv(arr);
+ 		
+ 		obj.even_odd(arr);
+ 		
+ 		
+	}
+}

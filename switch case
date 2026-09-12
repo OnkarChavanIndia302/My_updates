@@ -1,0 +1,43 @@
+package java_core;
+
+public class switchs {
+
+	public void swi(int a) {
+		switch(a) {
+		case 1:
+			System.out.println("monday");
+			break ;
+		
+		case 2 :
+			System.out.println("tuesday");
+			break ;
+			
+		case 3:
+			System.out.println("wednesday");
+			break ;
+			
+		case 4:
+			System.out.println("thrusday");
+			break ;
+			
+		case 5:
+			System.out.println("friday");
+			break ;
+			
+		case 6 :
+			System.out.println("saturday");
+			break ;
+			
+		case 7 :
+			System.out.println("sunday");
+			break ;
+			
+		}
+	}
+	public static void main(String[] args) {
+		switchs obj = new switchs();
+		obj.swi(1);
+		obj.swi(5);
+	}
+	
+}

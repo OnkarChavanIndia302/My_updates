@@ -1,0 +1,29 @@
+package errors;
+
+
+public class get_msg {
+
+	
+		
+		public static void main(String[] args) {
+			try {
+			      
+			      int result = 10 / 0;         
+			      }
+			catch(ArrayIndexOutOfBoundsException e ){
+				System.out.println("array index is out of bound ");
+				System.out.println("error can not devide by zero");
+				System.out.println(e.getMessage());
+			}
+			
+			
+			catch(ArithmeticException a) {
+				System.out.println(a.getMessage());
+			}
+			
+		}
+
+	}
+
+	
+

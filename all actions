@@ -1,0 +1,121 @@
+package z_selenium;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class all_actions {
+	
+	WebDriver driver ;
+	Actions act ;
+	
+	public void open_br() {
+		driver = new ChromeDriver();
+	}
+	
+	public void open_url() {
+		driver.get("https://demoqa.com/login");
+		
+	}
+	
+	public void get_title(String title) {
+		String name = driver.getTitle() ;
+		if(name.equals(title)) {
+			System.out.println("Pass");
+		}
+		else {
+			System.out.println("Fail");
+		}
+	}
+	
+	public void locator() {
+		driver.get("https://demoqa.com/login");
+		driver.findElement(By.id("userName")).sendKeys("onkar@123");
+		driver.findElement(By.id("password")).sendKeys("onkar@1156");
+		driver.findElement(By.id("login")).click();
+	}
+	
+	public void copy_paste() {
+		driver.get("https://demoqa.com/text-box");
+		
+		driver.findElement(By.id("userName")).sendKeys("onkar chavan");
+		driver.findElement(By.id("userEmail")).sendKeys("onkarchavan@123");
+		
+		act = new Actions(driver);
+		driver.findElement(By.id("currentAddress")).sendKeys("hello welcome to the class");
+		
+		act.keyDown(Keys.CONTROL);
+		act.sendKeys("a");
+		act.keyUp(Keys.CONTROL);
+		act.build().perform();
+		
+		act.keyDown(Keys.CONTROL);
+		act.sendKeys("c");
+		act.keyUp(Keys.CONTROL);
+		act.build().perform();
+	
+		act.sendKeys(Keys.TAB);
+		act.build().perform();
+		
+		act.keyDown(Keys.CONTROL);
+		act.sendKeys("v");
+		act.keyUp(Keys.CONTROL);
+		act.build().perform();
+	
+	}
+	
+	public void right_click() {
+		driver.get("https://demoqa.com/text-box");
+		act = new Actions(driver);
+		act.moveToElement(driver.findElement(By.linkText("Text Box"))).click();
+		act.contextClick().build().perform();
+		
+	} 
+	
+	public void mouse_move() {
+		driver.get("https://www.npci.org.in/");
+		
+		WebElement fist_move = driver.findElement(By.xpath("//span[contains(.,'About NPCI')]"));
+		WebElement second_move = driver.findElement(By.xpath("//span[contains(text(),'Speeches')]"));
+		
+		act = new Actions(driver);
+		act.moveToElement(fist_move).moveToElement(second_move).click().perform();
+		
+	}
+	
+	public void dragable() {
+	driver.get("https://demoqa.com/droppable/");
+	act = new Actions(driver);
+	act.dragAndDrop(driver.findElement(By.id("draggable")),driver.findElement(By.id("droppable"))).perform();
+	
+	}
+	
+	public void new_tab() {
+		driver.get("https://www.npci.org.in/");
+		
+		act = new Actions(driver);
+		
+		act.keyDown(Keys.CONTROL).perform();		
+		driver.findElement(By.linkText("Careers")).click();
+		act.keyUp(Keys.CONTROL).perform();
+			
+	}
+	
+	
+	public static void main(String[] args) {
+		all_actions obj = new all_actions();
+		obj.open_br();
+//		obj.open_url();
+//		obj.locator();
+//		obj.copy_paste();
+//		obj.get_title("demosite");
+//		obj.right_click();
+//		obj.dragable();
+		obj.new_tab();
+		
+				
+	}
+}

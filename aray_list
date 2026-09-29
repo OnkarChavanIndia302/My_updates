@@ -1,0 +1,87 @@
+//package array_list;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class restart {
+	public static void main(String[] args) {
+		
+		ArrayList m1 = new ArrayList() ;
+		m1.add("onkar chavan ") ;
+		m1.add(101) ;
+		m1.add(50.22) ;
+		m1.add(null);
+		m1.add(7835.56) ;
+		m1.add(" ") ;
+		m1.add(101);
+		m1.add(3,"java") ;//(index, element) ...inserting element in arraylist 
+		m1.set(3, "collections"); // replacing the value in arraylist 
+		
+		
+		
+	
+		System.out.println("the size of the arraylist is: "+m1.size());
+		System.out.println("element at index four is : "+m1.get(4));
+		System.out.println(m1.clone());
+		System.out.println("the elements from the arraylist "+m1);
+		
+		m1.remove(6);
+		System.out.println("after removing the array list is "+m1);
+		
+		 read data from arraylist using normal for loop 
+		
+		for(int i = 0 ; i<m1.size(); i++) {
+			System.out.println(m1.get(i));
+		}
+		
+		
+		using itterrator read data from arraylist 
+		
+		Iterator it = m1.iterator(); //  iterator makes itteration from starting to  endign 
+		System.out.println(it.next());
+		
+		
+		
+		while(it.hasNext()) {// hasnext method checks the is the next element is present in arraylist
+			System.out.println(it.next());// next method prints the next element checked by the hasnext method 
+		
+		}
+
+		
+		//removing multiple elements from array list
+		ArrayList m2 = new ArrayList();
+		m2.add(101) ;
+		m2.add(50.22) ;
+		
+		m1.removeAll(m2);
+		
+		
+		System.out.println("after removing elements list is "+m1);
+		
+		
+		// clear used to remove all elements from arralist
+		m1.clear();
+		
+		
+		
+		ArrayList<Integer> m2 = new ArrayList <Integer>();
+		m2.add(101) ;
+		m2.add(null);
+		System.out.println(m2);
+//
+//		
+//		
+		ArrayList<String> m3 = new ArrayList<>();
+		m3.add("chavan ") ;
+		m3.add(null);
+		m3.add(" ") ;
+		System.out.println(m3);
+
+//		
+//		
+		
+		
+		
+	}
+
+}

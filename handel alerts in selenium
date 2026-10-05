@@ -1,0 +1,49 @@
+package test_alert;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class promt_alert {
+	WebDriver driver ;
+	String expected_msg = "Please enter your name";
+	
+	public void open_br() {
+		driver = new ChromeDriver();
+		driver.get("https://demoqa.com/alerts");
+
+	}
+	
+	public void get_alert() throws InterruptedException {
+		driver.findElement(By.id("promtButton")).click();
+		
+		Thread.sleep(5000);
+			
+		Alert msg = driver.switchTo().alert();
+		
+		msg.sendKeys("hello and welcome to onkar's scripts...");
+		
+		msg.accept();
+		
+				
+	}
+	
+	public void get_msg() {
+		String web_alert = driver.switchTo().alert().getText();
+		
+		if(expected_msg.equals(web_alert)) {
+			System.out.println("the test case is pass...");
+		}
+		else {
+			System.out.println("the test case fail...");
+		}
+	}
+	
+	public static void main(String[] args) throws InterruptedException {
+		promt_alert obj = new promt_alert() ;
+		obj.open_br();
+		obj.get_alert();
+		obj.get_msg();
+	}
+}

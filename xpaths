@@ -1,0 +1,74 @@
+package x_abs_path;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class paths {
+
+    WebDriver driver;
+
+    void open_br() {
+        driver = new ChromeDriver();
+    }
+
+    void open_url() {
+        driver.get("https://www.demoblaze.com/");
+    }
+
+    void open_ele_xpath() {
+
+//         XPath with single attribute
+        boolean seen = driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']")).isDisplayed(); // amazone 
+        System.out.println(seen);
+
+//         XPath with multiple attributes -- amazone
+        driver.findElement(By.xpath("//input[@id='twotabsearchtextbox'][@name='field-keywords']")).sendKeys("laptop");
+        
+//         xpath with the and operator--> both the path should be correct -- amazone
+        driver.findElement(By.xpath("//input[@id='twotabsearchtextbox' and @name='field-keywords']")).sendKeys("laptop");
+        
+//        xpath with or keyword--> only one path is correct then fine  -- amazone
+        driver.findElement(By.xpath("//input[@id='twotabsearchtextbox' and @name='field-keywords']")).sendKeys("laptop");
+        
+//        xpath with text --->> in some test cases we have to check the availibility of the any text on the web page so use these method 
+        driver.findElement(By.xpath("//a[text()='Sell']")).click(); -- amazone
+        driver.navigate().back();
+    		
+    		//xpath with the text  -- amazone
+//    	boolean see = driver.findElement(By.xpath("//h2[text()='Keep shopping for sunscreen & aftercare']")).isDisplayed();
+//    		System.out.println(see);
+    		
+    		
+    	  	boolean seen = driver.findElement(By.xpath("//a[text()='About us']")).isDisplayed();
+    	  	System.out.println(seen); --- demoblaz
+    	  	
+    	  	driver.findElement(By.xpath("//a[text()='Contact']")).click(); 		//----demoblaze 
+    	
+    	
+    	// xpath with contains
+   boolean visibility = driver.findElement(By.xpath("//a[contains(.,'CATEGORIES')]")).isDisplayed() ;
+    	System.out.println(visibility); //  --- demoblaze
+    	
+    	//or
+    	
+    	boolean vis = driver.findElement(By.xpath("//a[contains(@class,'list-group-item')]")).isDisplayed() ;
+    	System.out.println(vis);
+    	
+    	//xpath start with 
+    	boolean st = driver.findElement(By.xpath("//a[starts-with(text(),'Abo')]")).isDisplayed();
+    	System.out.println(st);
+    	
+    	
+        
+    }
+
+    public static void main(String[] args) {
+
+        paths obj = new paths();
+
+        obj.open_br();
+        obj.open_url();
+        obj.open_ele_xpath();
+    }
+}

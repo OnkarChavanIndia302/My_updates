@@ -1,0 +1,51 @@
+package navigation;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class nagigate {
+	WebDriver driver ;
+	Actions act ;
+	public void open_br() {
+		driver = new ChromeDriver();
+
+	}
+	public void navigation_() throws MalformedURLException {
+		// open url using navigate method 
+		driver.navigate().to("https://www.rediff.com/");
+		
+		
+		// open url using object formate 
+		// the url method is also calling the get method internally 
+		URL myurl = new URL("https://www.rediff.com/");
+		driver.navigate().to(myurl);
+		
+	}
+	public void navigate_() throws InterruptedException {
+		driver.get("https://www.npci.org.in/");
+		Thread.sleep(5000);
+		
+		driver.get("https://www.youtube.com/");
+		Thread.sleep(5000);
+		
+		driver.navigate().back();
+		
+		driver.navigate().forward();
+		
+		
+	}
+	
+	
+public static void main(String[] args) throws MalformedURLException, InterruptedException {
+	nagigate obj = new nagigate();
+	obj.open_br();
+//	obj.navigation_();
+	
+	obj.navigate_();
+	
+}
+}

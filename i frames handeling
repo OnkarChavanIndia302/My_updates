@@ -1,0 +1,86 @@
+package handle_frames;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class handle_frame_1 {
+	WebDriver driver;
+
+	public void open_br() {
+		driver = new ChromeDriver();
+		driver.get("https://ui.vision/demo/webtest/frames/");
+
+	}
+
+	public void open_frame() {
+		//collecting and storing first frane to frame_1 and switch to first frame 
+		WebElement frame_1 = driver.findElement(By.xpath("//frame[@src='frame_1.html']"));
+		driver.switchTo().frame(frame_1);
+
+		driver.findElement(By.cssSelector("input[name='mytext1']")).sendKeys("onkar's scripting..");
+		// switch to default page 
+		driver.switchTo().defaultContent();
+
+
+		// colletig and swithing to aother page 
+		WebElement frame_2 = driver.findElement(By.xpath("//frame[@src='frame_2.html']"));
+		driver.switchTo().frame(frame_2) ;
+		driver.findElement(By.cssSelector("input[name='mytext2']")).sendKeys("welcome to.....");
+
+		driver.switchTo().defaultContent();
+
+	}
+
+	public void iframe_frame_under_frame() {
+		WebElement frame_3 = driver.findElement(By.xpath("//frame[@src='frame_3.html']"));
+		driver.switchTo().frame(frame_3);
+
+		driver.findElement(By.xpath("//input[@name='mytext3']")).sendKeys("onkar chavan...");
+
+		// swithced to inner iframe using index 
+		driver.switchTo().frame(0);
+
+
+		//inner page open in new browser and then you will get the xpath
+		driver.findElement(By.xpath("//div[@id='i9']//div[@class='AB7Lab Id5V1']")).click();
+
+		driver.switchTo().defaultContent();
+
+
+
+	}
+
+	public void operations_on_five_frame() {
+		WebElement frame__5 = driver.findElement(By.xpath("//frame[@src='frame_5.html']"));
+		driver.switchTo().frame(frame__5);
+
+		driver.findElement(By.xpath("//input[@name='mytext5']")).sendKeys("now click to below link ") ;
+
+		driver.findElement(By.linkText("https://a9t9.com")).click();
+		
+		driver.switchTo().defaultContent();
+		
+		WebElement check = driver.findElement(By.xpath("//img[@alt='Ui.Vision by a9t9 software - Image-Driven Automation']"));
+		
+		
+		if(check.isDisplayed()==true) {
+			System.out.println("pass...");
+		}
+		else {
+			System.out.println("failed...");
+		}
+
+	}
+
+	public static void main(String[] args) {
+		handle_frame_1 obj = new handle_frame_1();
+		obj.open_br();
+//		obj.open_frame();
+//		obj.iframe_frame_under_frame();
+		obj.operations_on_five_frame();
+
+
+	}
+}

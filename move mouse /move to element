@@ -1,0 +1,52 @@
+package key_board_acctions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class mouse_pointer {
+
+	WebDriver driver;
+	Actions act ;
+	void open_br() {
+		driver = new ChromeDriver();
+
+		driver.get("https://demoqa.com/text-box");
+	}
+
+	void locate() {
+
+		driver.findElement(By.id("userName")).sendKeys("test case");
+		driver.findElement(By.id("userEmail")).sendKeys("onkar@123");
+		
+		act = new Actions(driver);
+		driver.findElement(By.id("currentAddress")).sendKeys("come back to home ");
+		
+		act.keyDown(Keys.CONTROL);
+		act.sendKeys("a");
+		act.keyUp(Keys.CONTROL);
+		act.build().perform();
+		
+		act.keyDown(Keys.CONTROL);
+		act.sendKeys("c");
+		act.keyUp(Keys.CONTROL);
+		act.build().perform();
+		
+		act.sendKeys(Keys.TAB);
+		act.build().perform();
+		
+		act.keyDown(Keys.CONTROL);
+		act.sendKeys("v");
+		act.keyUp(Keys.CONTROL);act.build().perform();
+		
+	}
+
+	public static void main(String[] args) {
+		mouse_pointer obj = new mouse_pointer();
+		obj.open_br();
+		obj.locate();
+		
+
+	}
+}

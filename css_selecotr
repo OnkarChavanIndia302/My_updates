@@ -1,0 +1,47 @@
+package css_selector;
+
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class css_sel {
+WebDriver driver;
+Actions act ;
+
+	void openbr() {
+		driver = new ChromeDriver();
+		driver.get("https://searchanise.io/demo/");
+		
+	}
+	
+	void handle_css() {
+		// tag name and using the id (# is the seperate the tag and id) ----------> id is the search and tagname is the inout 
+		// syntax of css selector -------> tag_name#id
+		driver.findElement(By.cssSelector("input#search")).sendKeys("mac-book");
+		
+		// tag name and class
+		// tag_name.class_name
+		driver.findElement(By.cssSelector("input.tn-atom")).sendKeys("onkaar  chavan ");
+		
+		// tag attribute and class
+		// tag_name[attribute="value"]
+		driver.findElement(By.cssSelector("input[placeholder=\'Type here to search in our demo store...\']")).sendKeys("patil");
+		
+		//tag class and attrubute
+		//tag_name.class_name[attribute="value"]
+		driver.findElement(By.cssSelector("input.tn-atom[placeholder=\'Type here to search in our demo store...\']")).sendKeys("omyaaaaaaaaaa");
+		
+		
+		
+	}
+	
+	public static void main(String[] args) {
+		css_sel obj = new css_sel();
+		obj.openbr();
+		obj.handle_css();
+		
+	}
+}

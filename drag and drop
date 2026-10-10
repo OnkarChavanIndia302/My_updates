@@ -1,0 +1,40 @@
+package mouse_click;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class drag_drop {
+
+	WebDriver driver;
+	 Actions act ;
+	 
+	
+	public void open_br() {
+		driver = new ChromeDriver();
+		driver.get("https://vinothqaacademy.com/mouse-event/");
+	}
+	
+	void drag() {
+		WebElement dragg = driver.findElement(By.xpath("//div[@id='dragItem']"));
+		
+		WebElement dropp = driver.findElement(By.xpath("//div[@id='dropZone']"));
+		
+		
+		act = new Actions(driver) ;
+		
+		act.dragAndDrop(dragg, dropp).perform();
+		
+		
+	}
+	public static void main(String[] args) {
+		drag_drop obj = new drag_drop();
+		obj.open_br();
+		obj.drag();
+		
+	}
+	
+	
+}

@@ -1,0 +1,40 @@
+package wait_cmds;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class explicit_wait {
+	WebDriver driver ;
+	void open_br() throws InterruptedException {
+		driver = new ChromeDriver();
+
+		WebDriverWait mywait = new WebDriverWait(driver, Duration.ofSeconds(4));
+
+		driver.get("https://mail.rediff.com/cgi-bin/login.cgi");
+
+		WebElement locate = mywait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='login1']")));
+		locate.sendKeys("onkar") ;
+	
+		locate.isDisplayed();
+
+		driver.get("https://www.npci.org.in/");
+		
+		Thread.sleep(3000);
+		
+		
+		driver.navigate().back();
+		
+	}
+	public static void main(String[] args) throws InterruptedException {
+		explicit_wait obj = new explicit_wait();
+		obj.open_br();
+		
+	}
+}
